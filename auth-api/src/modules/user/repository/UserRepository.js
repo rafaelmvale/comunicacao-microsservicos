@@ -13,12 +13,11 @@ class UserRepository {
   async findByEmail(email){
     try {
       console.log(email)
-      const usuario = await User.findOne({where: email})
-      console.log('Busca norepositorio', usuario)
-
+      const usuario = await User.findOne({where: {email}})
+      console.log('Busca no repositorio', usuario)
+      
       return usuario
     } catch (error) {
-      console.log(err.message)
       return null
     }
   }
