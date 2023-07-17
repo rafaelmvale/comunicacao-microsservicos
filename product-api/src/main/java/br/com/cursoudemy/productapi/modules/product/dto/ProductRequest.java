@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class ProductRequest {
    private String name;
-   @JsonProperty("created_at")
+   @JsonProperty("quantity_available")
   private Integer quantityAvailable;
   private Integer supplier;
   private Integer category;

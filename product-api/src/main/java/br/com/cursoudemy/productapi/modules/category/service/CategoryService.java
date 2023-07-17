@@ -11,14 +11,42 @@ import br.com.cursoudemy.productapi.modules.category.repository.CategoryReposito
 
 import static org.springframework.util.StringUtils.isEmpty;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CategoryService {
 
   @Autowired
   private CategoryRepository categoryRepository;
 
+  public CategoryResponse findByIdResponse(Integer id) {
+    return CategoryResponse.of(findById(id));
+  }
+  public List<CategoryResponse> findAll() {
+    return categoryRepository
+            .findAll()
+            .stream()
+            .map(CategoryResponse::of)
+            .collect(Collectors.toList());
+  }
+
+  public List<CategoryResponse> findByDescription(String description) {
+    if(isEmpty(description)) {
+      throw new ValidationException("The category description must be informed");
+    }
+
+    return categoryRepository
+            .findByDescription(description)
+            .stream()
+            .map(CategoryResponse::of)
+            .collect(Collectors.toList());
+  }
     
   public Category findById(Integer id) {
+    if(isEmpty(id)) {
+      throw new ValidationException("The category id was not informed");
+    }
     return categoryRepository.findById(id)
       .orElseThrow(() -> new ValidationException("There is no category for the given id"));
   }

@@ -47,5 +47,5 @@ await Order.create({
   updatedAt: new Date()
 });
 let initialData = await Order.find();
-console.info('Initial data created successfully', initialData);
+console.info(`Initial data created successfully: ${JSON.stringify(initialData, undefined, 4)}` );
 }
