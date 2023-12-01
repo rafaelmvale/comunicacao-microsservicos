@@ -31,7 +31,7 @@ public class ProductResponse {
   private CategoryResponse category;
 
   public static ProductResponse of(Product product){
-    return ProductResponse
+   return ProductResponse
     .builder()
     .id(product.getId())
     .name(product.getName())

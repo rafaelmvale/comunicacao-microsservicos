@@ -9,6 +9,6 @@ public class ProductRequest {
    private String name;
    @JsonProperty("quantity_available")
   private Integer quantityAvailable;
-  private Integer supplier;
-  private Integer category;
+  private Integer supplierId;
+  private Integer categoryId;
 }

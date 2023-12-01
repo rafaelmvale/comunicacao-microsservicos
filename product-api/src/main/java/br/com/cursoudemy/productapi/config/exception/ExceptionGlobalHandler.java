@@ -7,22 +7,18 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class ExceptionGlobalHandler {
-  
-  @ExceptionHandler(ValidationException.class)
-  public ResponseEntity<?> handleValidationException(ValidationException validationException) {
-    var datails = new ExceptionDetails();
-    datails.setStatus(HttpStatus.BAD_REQUEST.value());
-    datails.setMessage(validationException.getMessage());
-    return new ResponseEntity<>(datails, HttpStatus.BAD_REQUEST);
-    
-  }
-
-   @ExceptionHandler(ValidationException.class)
-  public ResponseEntity<?> handleAuthenticationException(AuthenticationException authenticationException) {
-    var datails = new ExceptionDetails();
-    datails.setStatus(HttpStatus.UNAUTHORIZED.value());
-    datails.setMessage(authenticationException.getMessage());
-    return new ResponseEntity<>(datails, HttpStatus.UNAUTHORIZED);
-    
-  }
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<?> handleValidationException(ValidationException validationException){
+        var details = new ExceptionDetails();
+        details.setStatus(HttpStatus.BAD_REQUEST.value());
+        details.setMessage(validationException.getMessage());
+        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<?> handleAuthenticationException(AuthenticationException authenticationException){
+        var details = new ExceptionDetails();
+        details.setStatus(HttpStatus.UNAUTHORIZED.value());
+        details.setMessage(authenticationException.getMessage());
+        return new ResponseEntity<>(details, HttpStatus.UNAUTHORIZED);
+    }
 }

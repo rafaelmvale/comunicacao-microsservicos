@@ -1,9 +1,9 @@
 package br.com.cursoudemy.productapi.modules.category.dto;
 
-import org.springframework.beans.BeanUtils;
 
 import br.com.cursoudemy.productapi.modules.category.model.Category;
 import lombok.Data;
+import org.springframework.beans.BeanUtils;
 
 @Data
 public class CategoryResponse {
