@@ -2,8 +2,8 @@ import jwt from 'jsonwebtoken'
 import { promisify } from 'util'
 
 import AuthException from './authException.js'
-import {UNAUTHORIZED, INTERNAL_SERVER_ERROR} from '../httpStatus.js'
-import {API_SECRET} from '../secrets/secrets.js'
+import {UNAUTHORIZED, INTERNAL_SERVER_ERROR} from '../contants/httpStatus.js'
+import {API_SECRET} from '../contants/secrets.js'
 
 const emptySpace = " ";
 

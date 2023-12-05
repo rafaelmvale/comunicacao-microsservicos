@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-import { MONGO_DB_URL } from '../secrets/secrets.js'
+import { MONGO_DB_URL } from '../contants/secrets.js'
 
 
-export function connect() {
+export function connectMongoDB() {
   mongoose.connect(MONGO_DB_URL, { useNewUrlParser: true, serverSelectionTimeoutMS: 180000,})
   
 
